@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TestAppWidget2Activity!</string>
+    <string name="app_name">TestAppWidget2</string>
+
+</resources>
