@@ -1,0 +1,10 @@
+CREATE TABLE  `handsom_db`.`sample_memo` (
+`m_idx` INT( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT ,
+`m_name` VARCHAR( 50 ) CHARACTER SET euckr COLLATE euckr_korean_ci NOT NULL ,
+`m_email` VARCHAR( 100 ) CHARACTER SET euckr COLLATE euckr_korean_ci NOT NULL ,
+`m_pass` VARCHAR( 50 ) CHARACTER SET euckr COLLATE euckr_korean_ci NOT NULL ,
+`m_memo` TEXT CHARACTER SET euckr COLLATE euckr_korean_ci NOT NULL ,
+`m_ip` VARCHAR( 15 ) CHARACTER SET euckr COLLATE euckr_korean_ci NOT NULL ,
+`m_regdate` DATE NOT NULL ,
+PRIMARY KEY (  `m_idx` )
+) ENGINE = MYISAM CHARACTER SET euckr COLLATE euckr_korean_ci COMMENT = '샘풀 메모장';
