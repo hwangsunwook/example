@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
     
     
     //접속할주소
-    private final String urlPath = "http://106.242.30.26:8080/phptest/phptest.php";
+    private final String urlPath = "http://XXX.XXX.XXX.XXX:8080/phptest.php";
     private final String TAG = "PHPTEST";
     
     @Override
