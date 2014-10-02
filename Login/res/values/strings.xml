@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Settings</string>
+    <string name="title_login">로그인</string>
+    <string name="title_add_user_info">회원가입</string>
+    <string name="title_normal_user">일반회원</string>
+    <string name="title_real_estate">중개인회원</string>
+    <string name="title_activity_normal_user">NormalUserActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_real_estate">RealEstateActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+</resources>
