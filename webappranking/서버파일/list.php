@@ -2,39 +2,52 @@
 <html>
 	<meta charset="UTF-8">
 <body>
-<table style="width:100%;height:50px;border:5px #CCCCCC solid;">
-    <tr>
-        <td align="center" valign="middle" style="font-zise:15px;font-weight:bold;">Ranking</td>
-    </tr>
-</table>
 
-<table style="width:100%;font-zise:12px;">
-    <tr>
-        <td height="20" align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;">Number</td>
-        <td align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;">Name</td>
-        <td align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;">Score</td>
-        <td align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;">
-		Grade</td>        
-    </tr>
 <?php
-// 3.디비와 연결
-// 4.데이터베이스 선택
+// 디비와 연결
+// 데이터베이스 선택
 
 $HOST = "localhost";
 $DBNAME = "db";
 $DBUSER = "root";
 $DBPW   = "password";
 
-// 디비와 연결
 $connect = mysql_connect("$HOST", "$DBUSER", "$DBPW") or die(mysql_error());
-
-// 데이터베이스 선택
 mysql_select_db("$DBNAME", $connect) or die(mysql_error());
 
+$query = "select Language from CurrentLanguage";
+$result = mysql_query($query, $connect);
+$Current_Language = mysql_fetch_array($result);
 
+$str = strcmp($Current_Language[Language],"ko");
+if($str)
+{
+  $query = "select * from Locale where Count = 2";
+} else {
+  $query = "select * from Locale where Count = 1";
+}
+
+$result = mysql_query($query, $connect);
+$data = mysql_fetch_array($result);	
+?>
+
+<table style="width:100%;height:50px;border:5px #CCCCCC solid;">
+    <tr>
+        <td align="center" valign="middle" style="font-zise:15px;font-weight:bold;"><?=$data[Ranking]?></td>
+    </tr>
+</table>
+
+<table style="width:100%;font-zise:12px;">
+    <tr>
+        <td height="20" align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;"><?=$data[number]?></td>
+        <td align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;"><?=$data[Name]?></td>
+        <td align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;"><?=$data[Score]?></td>
+        <td align="center" valign="middle" style="border:1px #CCCCCC solid;font-weight:bold;">
+		<?=$data[Grade]?></td>        
+    </tr>
+
+<?
 // 여기서 부터 페이징 관련
-
-// 5. 현재 페이지 변수정리
 
 if($_GET[page] && $_GET[page] > 0){
     // 현재 페이지 값이 존재하고 0 보다 크면 그대로 사용
